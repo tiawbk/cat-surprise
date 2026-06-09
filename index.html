@@ -37,6 +37,8 @@
             border-radius: 15px;
             margin: 15px auto;
             display: block;
+            height: 220px;
+            object-fit: cover;
         }
         .question-text {
             font-size: 1.4rem; 
@@ -91,6 +93,8 @@
             border: 4px solid #ffb3c1;
             display: block;
             margin: 0 auto;
+            height: 220px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -105,51 +109,5 @@
 
         <!-- Question Card -->
         <div class="card" id="mainCard">
-            <img class="main-gif" src="https://giphy.com" alt="Cat typing fast">
-            
-            <p class="question-text">
-                Will you be my partner in crime for an epic road trip adventure?
-            </p>
-            
-            <div class="btn-container">
-                <button id="yesBtn" onclick="saidYes()">Heck Yes! 😼</button>
-                <button id="noBtn" onmouseover="dodgeNo()" style="left: 55%; top: 0px;">No 😿</button>
-            </div>
-
-            <!-- Secret Success Content -->
-            <div id="successMessage">
-                <h2>🎉 EXCELLENT. Packing the catnip right now! 🚗💨</h2>
-                <img class="meme-img" src="https://giphy.com" alt="Cat driving a car">
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function saidYes() {
-            document.getElementById("successMessage").style.display = "block";
-            document.getElementById("yesBtn").style.display = "none";
-            document.getElementById("noBtn").style.display = "none";
-            document.querySelector(".main-gif").style.display = "none";
-            document.querySelector(".question-text").style.display = "none";
-        }
-
-        function dodgeNo() {
-            var noBtn = document.getElementById("noBtn");
-            var card = document.getElementById("mainCard");
-            
-            // Stay within safe boundaries of the card
-            var maxWidth = card.clientWidth - noBtn.clientWidth - 40;
-            var maxHeight = card.clientHeight - noBtn.clientHeight - 160;
-            
-            var randomX = Math.floor(Math.random() * maxWidth);
-            var randomY = Math.floor(Math.random() * maxHeight) + 80;
-            
-            noBtn.style.left = randomX + "px";
-            noBtn.style.top = randomY + "px";
-        }
-    </script>
-
-</body>
-</html>
-
+            <!-- Reliable Cat Image 1 -->
+            <img class="main-gif" src="
