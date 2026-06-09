@@ -31,14 +31,15 @@
             position: relative;
             min-height: 400px;
         }
-        .main-gif {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 15px;
-            margin: 15px auto;
+        .emoji-art {
+            font-size: 7rem;
+            margin: 20px 0;
             display: block;
-            height: 220px;
-            object-fit: cover;
+            animation: bounce 2s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
         }
         .question-text {
             font-size: 1.4rem; 
@@ -86,16 +87,6 @@
             font-size: 1.8rem;
             margin-bottom: 15px;
         }
-        .meme-img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 15px;
-            border: 4px solid #ffb3c1;
-            display: block;
-            margin: 0 auto;
-            height: 220px;
-            object-fit: cover;
-        }
     </style>
 </head>
 <body>
@@ -109,5 +100,50 @@
 
         <!-- Question Card -->
         <div class="card" id="mainCard">
-            <!-- Reliable Cat Image 1 -->
-            <img class="main-gif" src="
+            <!-- Animated Giant Emoji Cat -->
+            <div class="emoji-art" id="mainEmoji">🐱💬</div>
+            
+            <p class="question-text">
+                Will you be my partner in crime for an epic road trip adventure?
+            </p>
+            
+            <div class="btn-container">
+                <button id="yesBtn" onclick="saidYes()">Heck Yes! 😼</button>
+                <button id="noBtn" onmouseover="dodgeNo()" style="left: 55%; top: 0px;">No 😿</button>
+            </div>
+
+            <!-- Secret Success Content -->
+            <div id="successMessage">
+                <h2>🎉 EXCELLENT. Packing the catnip right now! 🚗💨</h2>
+                <div class="emoji-art">😎🐈🏎️💨</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function saidYes() {
+            document.getElementById("successMessage").style.display = "block";
+            document.getElementById("yesBtn").style.display = "none";
+            document.getElementById("noBtn").style.display = "none";
+            document.getElementById("mainEmoji").style.display = "none";
+            document.querySelector(".question-text").style.display = "none";
+        }
+
+        function dodgeNo() {
+            var noBtn = document.getElementById("noBtn");
+            var card = document.getElementById("mainCard");
+            
+            var maxWidth = card.clientWidth - noBtn.clientWidth - 40;
+            var maxHeight = card.clientHeight - noBtn.clientHeight - 160;
+            
+            var randomX = Math.floor(Math.random() * maxWidth);
+            var randomY = Math.floor(Math.random() * maxHeight) + 80;
+            
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+    </script>
+
+</body>
+</html>
